@@ -27,18 +27,24 @@
     <ClInclude Include="StudentGradeInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Gradebook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CSIS112Lab7.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StudentInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StudentGradeInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gradebook2Driver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gradebook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
