@@ -19,3 +19,4 @@ private:
 	void SortStudents();
 };
 
+std::ostream & operator<<(std::ostream & out, StudentGradeInfo & sgi);

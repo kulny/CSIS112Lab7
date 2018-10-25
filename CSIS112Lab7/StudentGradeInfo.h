@@ -4,7 +4,7 @@
 #include <iostream>
 #include <exception>
 
-std::ostream & operator<<(std::ostream & out, StudentGradeInfo & sgi);
+
 
 class StudentGradeInfo :
 	public StudentInfo  // extends StudentInfo
@@ -21,6 +21,8 @@ public:
 
 	bool operator==(StudentGradeInfo& sgi); // overloads ==, compares two student grade info classes
 	bool operator<(StudentGradeInfo& sgi); // overloads < to compare student ID's for sort
+
+
 
 private:
 	std::vector<int> grades;

@@ -2,9 +2,9 @@
 #include "StudentGradeInfo.h"
 #include <iostream>
 
-StudentGradeInfo::StudentGradeInfo(std::string name)
+StudentGradeInfo::StudentGradeInfo(std::string name) : StudentInfo(name)
 {
-	StudentInfo StudentInfo(name);
+	//StudentInfo StudentInfo(name);
 }
 
 StudentGradeInfo::~StudentGradeInfo()
@@ -67,7 +67,7 @@ bool StudentGradeInfo::operator<(StudentGradeInfo & sgi)
 
 int StudentGradeInfo::CalcAvg()
 {
-	int avg;
+	int avg = 0;
 
 	for (int i : grades)
 	{
@@ -77,13 +77,3 @@ int StudentGradeInfo::CalcAvg()
 	return avg / grades.size(); // divides total by number of grades
 }
 
-std::ostream & operator<<(std::ostream & out, StudentGradeInfo & sgi)
-{
-	out << "Student name: " << sgi.GetStudentName() << '\n';
-	out << "Student ID: " << sgi.GetStudentID() << '\n';
-	out << "Student Major: " << sgi.GetMajor() << '\n';
-	out << "Student grades and average:";
-	sgi.PrintAllGradesAndAvg();
-
-	return out;
-}

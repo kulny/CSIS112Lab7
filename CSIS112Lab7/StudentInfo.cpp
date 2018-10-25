@@ -29,7 +29,7 @@ void StudentInfo::SetMajor(std::string major)
 
 std::string StudentInfo::GetStudentName()
 {
-	return this->studentName;
+	return *this->studentName;
 }
 
 int StudentInfo::GetStudentID()

@@ -18,10 +18,10 @@ int Gradebook::GetNumStudents()
 
 void Gradebook::AddStudent(StudentGradeInfo& sgi)
 {
-	bool studentExists;
+	bool studentExists = false;
 	for (StudentGradeInfo i : students) // checks if studentID already exists
 	{
-		if (i.GetStudentID != sgi.GetStudentID())
+		if (i.GetStudentID() != sgi.GetStudentID())
 		{
 			studentExists = false;
 		}
@@ -48,4 +48,15 @@ void Gradebook::PrintAllRecords()
 	{
 		std::cout << i;
 	}
+}
+
+std::ostream & operator<<(std::ostream & out, StudentGradeInfo & sgi)
+{
+	out << "Student name: " << sgi.GetStudentName() << '\n';
+	out << "Student ID: " << sgi.GetStudentID() << '\n';
+	out << "Student Major: " << sgi.GetMajor() << '\n';
+	out << "Student grades and average:";
+	sgi.PrintAllGradesAndAvg();
+
+	return out;
 }
