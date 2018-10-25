@@ -13,7 +13,7 @@ StudentGradeInfo::~StudentGradeInfo()
 
 void StudentGradeInfo::AddGrade(int n)
 {
-	if (n < 100 && n > 0)
+	if (n <= 100 && n >= 0)
 	{
 		grades.push_back(n);
 	}
@@ -31,6 +31,11 @@ int StudentGradeInfo::GetGradeAtIndex(int index) // print grade at index
 		return grades[index];
 	}
 	
+}
+
+int StudentGradeInfo::GetAmountOfGrades()
+{
+	return grades.size();
 }
 
 void StudentGradeInfo::PrintAllGrades()

@@ -16,6 +16,7 @@ public:
 
 	void AddGrade(int n);
 	int GetGradeAtIndex(int index); //returns single grade at index
+	int GetAmountOfGrades();
 	void PrintAllGrades();
 	void PrintAllGradesAndAvg();
 
