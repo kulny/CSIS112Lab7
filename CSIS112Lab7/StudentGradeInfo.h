@@ -17,17 +17,19 @@ public:
 	void AddGrade(int n);
 	int GetGradeAtIndex(int index); //returns single grade at index
 	int GetAmountOfGrades();
-	void PrintAllGrades();
+	bool PrintAllGrades();
 	void PrintAllGradesAndAvg();
 
-	bool operator==(StudentGradeInfo& sgi); // overloads ==, compares two student grade info classes
-	bool operator<(StudentGradeInfo& sgi); // overloads < to compare student ID's for sort
+	bool operator==(StudentGradeInfo* sgi); // overloads ==, compares two student grade info classes
+	bool operator<(StudentGradeInfo* sgi); // overloads < to compare student ID's for sort
 
 
 
 private:
 	std::vector<int> grades;
 
-	int CalcAvg();
-};
+	
+	
 
+	double CalcAvg();
+};

@@ -21,6 +21,7 @@ public:
 	int GetStudentID();
 	std::string GetMajor();
 
+
 private:
 	std::string* studentName;
 	int studentID;

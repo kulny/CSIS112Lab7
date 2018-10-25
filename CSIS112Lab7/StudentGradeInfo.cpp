@@ -13,15 +13,19 @@ StudentGradeInfo::~StudentGradeInfo()
 
 void StudentGradeInfo::AddGrade(int n)
 {
-	if (n <= 100 && n >= 0)
+	if (grades.size() < 5) // maxes amount of grades at 5
 	{
-		grades.push_back(n);
+		if (n <= 100 && n >= 0)
+		{
+			grades.push_back(n);
+		}
+		else
+		{
+			throw std::invalid_argument("Grades cannot be negative or greater than 100.");
+		}
+
 	}
-	else
-	{
-		throw std::invalid_argument("Grades cannot be negative or greater than 100.");
-	}
-	
+
 }
 
 int StudentGradeInfo::GetGradeAtIndex(int index) // print grade at index
@@ -38,23 +42,35 @@ int StudentGradeInfo::GetAmountOfGrades()
 	return grades.size();
 }
 
-void StudentGradeInfo::PrintAllGrades()
+bool StudentGradeInfo::PrintAllGrades()
 {
-	for (int i : grades) // iterates through all grades
+	if (grades.size() > 0)
 	{
-		std::cout << i << '\n';
+		for (int i : grades) // iterates through all grades
+		{
+			std::cout << i << '\n';
+		}
+		return true; // verifies there were grades to print
+	}
+	else
+	{
+		std::cout << "There were no grades." << '\n';
+		return false; // flags no grades were available to print
 	}
 }
 
 void StudentGradeInfo::PrintAllGradesAndAvg()
 {
-	PrintAllGrades();
-	std::cout << "The average is :" <<  CalcAvg() << '\n';
+	if (PrintAllGrades())
+	{
+		std::cout << "The average is: " << CalcAvg() << '\n';
+	}
+
 }
 
-bool StudentGradeInfo::operator==(StudentGradeInfo & sgi)
+bool StudentGradeInfo::operator==(StudentGradeInfo * sgi)
 {
-	if (this->GetStudentID() == sgi.GetStudentID())
+	if (this->GetStudentID() == sgi->GetStudentID())
 	{
 		return true;
 	}
@@ -65,12 +81,12 @@ bool StudentGradeInfo::operator==(StudentGradeInfo & sgi)
 
 }
 
-bool StudentGradeInfo::operator<(StudentGradeInfo & sgi)
+bool StudentGradeInfo::operator<(StudentGradeInfo * sgi) // overload allows the std::sort to function with sgi objects
 {
-	return this->GetStudentID() < sgi.GetStudentID();
+	return this->GetStudentID() < sgi->GetStudentID();
 }
 
-int StudentGradeInfo::CalcAvg()
+double StudentGradeInfo::CalcAvg()
 {
 	int avg = 0;
 
@@ -79,6 +95,6 @@ int StudentGradeInfo::CalcAvg()
 		avg += i; // calculates total of all grades
 	}
 
-	return avg / grades.size(); // divides total by number of grades
+	return double(avg) / double(grades.size()); // divides total by number of grades
 }
 
