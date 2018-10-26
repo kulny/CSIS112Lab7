@@ -65,6 +65,19 @@ void Gradebook::PrintAllRecords()
 	}
 }
 
+bool Gradebook::operator==(int n)
+{
+	for (StudentGradeInfo * i : students)
+	{
+		if (i->GetStudentID() == n)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
 
 std::ostream & operator<<(std::ostream & out, StudentGradeInfo * sgi)
 {
